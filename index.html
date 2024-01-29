@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J나라 시간</title>
+</head>
+<body>
+    <b><h3 style="text-align: center;" id="day">모두들</h3>
+    <h1 style="text-align: center;" id="time">시간 보고 가세요</h1></b>
+
+    <script>
+        const Days = ['일', '월', '화', '수', '목', '금', '토']
+        const a = document.querySelector("#time");
+        const b = document.querySelector("#day");
+
+        gettime = () => {
+            const time = new Date();
+
+            const year = time.getFullYear();
+            const month = time.getMonth()+1;
+            const day = time.getDate();
+            const charday = Days[time.getDay()];
+            const hour = String(time.getHours()).padStart(2, "0");
+            const minute = String(time.getMinutes()).padStart(2, "0");
+            const second = String(time.getSeconds()).padStart(2, "0");
+            a.innerText = `${hour}:${minute}:${second}`;
+            b.innerText = `${year}년 ${month}월 ${day}일 ${charday}요일`
+        }
+
+        gettime();
+        setInterval(gettime, 1000);
+
+    </script>
+    <br><br><br>
+    <h1 style="text-align: center; color: red;">시간은 금이다</h1>
+</body>
+</html>
